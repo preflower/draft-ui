@@ -9,7 +9,7 @@
 - **Monorepo**: 由 pnpm workspaces 驱动。
 - **复制粘贴架构**: 组件直接导入到您的项目文件中（无需安装笨重的 npm 包）。
 - **多框架支持**: 原生支持 **Vue 3** 和 **React**。
-- **CLI 工具**: 使用 `draft-vue` 和 `draft-react` 轻松管理组件。
+- **CLI 工具**: 使用 `draft-ui` 轻松管理组件。
 - **shadcn/ui 兼容**: 复用 `components.json` 进行配置。
 - **文档**: 内置 VitePress 文档，包含交互式示例。
 
@@ -35,20 +35,22 @@ pnpm install
 pnpm build
 ```
 
-### 本地调试
+### 使用方法
 
-开发时在项目中使用 CLI：
+在项目中使用 CLI：
 
-1. **初始化**项目：
-   ```bash
-   # 在您的测试项目目录中
-   pnpm draft-vue init
-   ```
+```bash
+# 初始化项目
+npx draft-ui init
 
-2. **添加**组件：
-   ```bash
-   pnpm draft-vue add button
-   ```
+# 添加组件 (Vue)
+pnpm dlx draft-vue add [component]
+
+# 添加组件 (React)
+pnpm dlx draft-react add [component]
+```
+
+> 注意：`draft-vue` 和 `draft-react` 是 `draft-ui` 包中提供的二进制别名。
 
 ## 📄 配置说明
 
@@ -66,7 +68,7 @@ Draft UI 使用项目根目录下的 `components.json` 来管理路径：
 
 ## 💻 文档
 
-访问在线文档：[https://preflower.github.io/draft-ui/](https://preflower.github.io/draft-ui/)
+访问在线文档：[https://preflower.github.io/draft-ui/zh/](https://preflower.github.io/draft-ui/zh/)
 
 本地运行文档：
 

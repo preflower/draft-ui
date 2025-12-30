@@ -6,16 +6,17 @@ First, ensure you have `pnpm` installed.
 
 ## Usage
 
-### Vue
+Add components directly using the CLI:
 
 ```bash
-pnpm draft-vue add button
-```
+# Initialize project
+npx draft-ui init
 
-### React
+# Add a Vue component
+pnpm dlx draft-vue add button
 
-```bash
-pnpm draft-react add button
+# Add a React component
+pnpm dlx draft-react add button
 ```
 
 ## Configuration

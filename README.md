@@ -9,7 +9,7 @@ A shadcn/ui-inspired component library for Vue and React, built with pnpm monore
 - **Monorepo**: Powered by pnpm workspaces.
 - **Copy-Paste Architecture**: Components are imported directly into your project files (no `node_modules` bloating).
 - **Multi-Framework**: First-class support for both **Vue 3** and **React**.
-- **CLI Utility**: Easy component management with `draft-vue` and `draft-react`.
+- **CLI Utility**: Easy component management with `draft-ui`.
 - **shadcn/ui Compatible**: Reuses `components.json` for configuration.
 - **Documentation**: Built-in VitePress docs with interactive examples.
 
@@ -35,20 +35,22 @@ pnpm install
 pnpm build
 ```
 
-### Usage (Local Debugging)
+### Usage
 
-To use the CLI in your project during development:
+To use the CLI in your project:
 
-1. **Initialize** your project:
-   ```bash
-   # In your test project directory
-   pnpm draft-vue init
-   ```
+```bash
+# Initialize project
+npx draft-ui init
 
-2. **Add** a component:
-   ```bash
-   pnpm draft-vue add button
-   ```
+# Add a component (Vue)
+pnpm draft-vue add [component]
+
+# Add a component (React)
+pnpm draft-react add [component]
+```
+
+> Note: `draft-vue` and `draft-react` are provided as bin aliases in the `draft-ui` package.
 
 ## 📄 Configuration
 

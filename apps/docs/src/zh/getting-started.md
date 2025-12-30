@@ -4,18 +4,19 @@
 
 Draft UI 是一个类似 shadcn 的组件库。你不需要安装整个包，而是可以选择性地添加你需要的组件。
 
-## 添加组件
+## 使用方法
 
-使用 CLI 工具添加组件到你的项目：
-
-```bash
-npx draft-vue add [component-name]
-```
-
-例如，添加 FlipNumber 组件：
+使用 CLI 工具直接添加组件到你的项目：
 
 ```bash
-npx draft-vue add flip-countdown
+# 初始化项目
+npx draft-vue init
+
+# 添加 Vue 组件
+pnpm dlx draft-vue add button
+
+# 添加 React 组件
+pnpm dlx draft-react add button
 ```
 
 这将会把组件文件复制到你的项目中，你可以根据需要自由修改。
