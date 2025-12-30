@@ -1,5 +1,5 @@
 {
-  "name": "draft-ui",
+  "name": "draft-cli",
   "version": "0.0.2",
   "private": false,
   "description": "A command-line tool for adding components to your Vue and React projects. Inspired by shadcn/ui.",
