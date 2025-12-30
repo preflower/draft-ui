@@ -2,9 +2,10 @@ name: Changeset Release
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - '.changeset/**'
+      - '.github/workflows/release.yml'
   workflow_dispatch:
 permissions:
   contents: write
