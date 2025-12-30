@@ -1,11 +1,15 @@
 {
   "name": "@draft-ui/cli",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "type": "module",
   "bin": {
     "draft-vue": "./dist/vue.js",
     "draft-react": "./dist/react.js"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   },
   "scripts": {
     "build": "tsup src/bin/vue.ts src/bin/react.ts --format esm --clean --dts",

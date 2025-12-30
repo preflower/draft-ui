@@ -21,10 +21,6 @@
     "url": "git+https://github.com/preflower/draft-ui.git"
   },
   "author": "Ted Lin <preflower.lin@gmail.com> (https://github.com/preflower)",
-  "publishConfig": {
-    "access": "public",
-    "provenance": true
-  },
   "scripts": {
     "dev": "pnpm --filter @draft-ui/docs dev",
     "build:docs": "pnpm --filter @draft-ui/docs build",
@@ -32,9 +28,13 @@
     "preview": "pnpm --filter @draft-ui/docs preview",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "type-check": "pnpm -r exec tsc --noEmit"
+    "type-check": "pnpm -r exec tsc --noEmit",
+    "changeset": "changeset",
+    "ci:version": "pnpm changeset version && pnpm install --lockfile-only",
+    "ci:publish": "pnpm build && pnpm changeset publish"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.8",
     "@types/node": "^20.0.0",
     "eslint": "^9.0.0",
     "eslint-config-ted": "^4.1.1",
