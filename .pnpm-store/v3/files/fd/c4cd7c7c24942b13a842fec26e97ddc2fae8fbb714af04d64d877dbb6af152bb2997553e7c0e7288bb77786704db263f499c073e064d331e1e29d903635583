@@ -1,0 +1,851 @@
+// src/configs/javascript.ts
+import pluginN from "eslint-plugin-n";
+import * as pluginImport from "eslint-plugin-import";
+import pluginPromise from "eslint-plugin-promise";
+import globals from "globals";
+var javascript = [
+  {
+    name: "standard/js",
+    languageOptions: {
+      ecmaVersion: 2022,
+      sourceType: "module",
+      parserOptions: {
+        ecmaFeatures: { jsx: true }
+      },
+      globals: {
+        ...globals.es2021,
+        ...globals.node,
+        document: "readonly",
+        navigator: "readonly",
+        window: "readonly"
+      }
+    },
+    plugins: {
+      n: pluginN,
+      promise: pluginPromise,
+      import: pluginImport
+    },
+    rules: {
+      "no-var": "warn",
+      "object-shorthand": ["warn", "properties"],
+      "accessor-pairs": ["error", { setWithoutGet: true, enforceForClassMembers: true }],
+      "array-bracket-spacing": ["error", "never"],
+      "array-callback-return": ["error", {
+        allowImplicit: false,
+        checkForEach: false
+      }],
+      "arrow-spacing": ["error", { before: true, after: true }],
+      "block-spacing": ["error", "always"],
+      "brace-style": ["error", "1tbs", { allowSingleLine: true }],
+      camelcase: ["error", {
+        allow: ["^UNSAFE_"],
+        properties: "never",
+        ignoreGlobals: true
+      }],
+      "comma-dangle": ["error", {
+        arrays: "never",
+        objects: "never",
+        imports: "never",
+        exports: "never",
+        functions: "never"
+      }],
+      "comma-spacing": ["error", { before: false, after: true }],
+      "comma-style": ["error", "last"],
+      "computed-property-spacing": ["error", "never", { enforceForClassMembers: true }],
+      "constructor-super": "error",
+      curly: ["error", "multi-line"],
+      "default-case-last": "error",
+      "dot-location": ["error", "property"],
+      "dot-notation": ["error", { allowKeywords: true }],
+      "eol-last": "error",
+      eqeqeq: ["error", "always", { null: "ignore" }],
+      "func-call-spacing": ["error", "never"],
+      "generator-star-spacing": ["error", { before: true, after: true }],
+      indent: ["error", 2, {
+        SwitchCase: 1,
+        VariableDeclarator: 1,
+        outerIIFEBody: 1,
+        MemberExpression: 1,
+        FunctionDeclaration: { parameters: 1, body: 1 },
+        FunctionExpression: { parameters: 1, body: 1 },
+        CallExpression: { arguments: 1 },
+        ArrayExpression: 1,
+        ObjectExpression: 1,
+        ImportDeclaration: 1,
+        flatTernaryExpressions: false,
+        ignoreComments: false,
+        ignoredNodes: [
+          "TemplateLiteral *",
+          "JSXElement",
+          "JSXElement > *",
+          "JSXAttribute",
+          "JSXIdentifier",
+          "JSXNamespacedName",
+          "JSXMemberExpression",
+          "JSXSpreadAttribute",
+          "JSXExpressionContainer",
+          "JSXOpeningElement",
+          "JSXClosingElement",
+          "JSXFragment",
+          "JSXOpeningFragment",
+          "JSXClosingFragment",
+          "JSXText",
+          "JSXEmptyExpression",
+          "JSXSpreadChild"
+        ],
+        offsetTernaryExpressions: true
+      }],
+      "key-spacing": ["error", { beforeColon: false, afterColon: true }],
+      "keyword-spacing": ["error", { before: true, after: true }],
+      "lines-between-class-members": ["error", "always", { exceptAfterSingleLine: true }],
+      "multiline-ternary": ["error", "always-multiline"],
+      "new-cap": ["error", { newIsCap: true, capIsNew: false, properties: true }],
+      "new-parens": "error",
+      "no-array-constructor": "error",
+      "no-async-promise-executor": "error",
+      "no-caller": "error",
+      "no-case-declarations": "error",
+      "no-class-assign": "error",
+      "no-compare-neg-zero": "error",
+      "no-cond-assign": "error",
+      "no-const-assign": "error",
+      "no-constant-condition": ["error", { checkLoops: false }],
+      "no-control-regex": "error",
+      "no-debugger": "error",
+      "no-delete-var": "error",
+      "no-dupe-args": "error",
+      "no-dupe-class-members": "error",
+      "no-dupe-keys": "error",
+      "no-duplicate-case": "error",
+      "no-useless-backreference": "error",
+      "no-empty": ["error", { allowEmptyCatch: true }],
+      "no-empty-character-class": "error",
+      "no-empty-pattern": "error",
+      "no-eval": "error",
+      "no-ex-assign": "error",
+      "no-extend-native": "error",
+      "no-extra-bind": "error",
+      "no-extra-boolean-cast": "error",
+      "no-extra-parens": ["error", "functions"],
+      "no-fallthrough": "error",
+      "no-floating-decimal": "error",
+      "no-func-assign": "error",
+      "no-global-assign": "error",
+      "no-implied-eval": "error",
+      "no-import-assign": "error",
+      "no-invalid-regexp": "error",
+      "no-irregular-whitespace": "error",
+      "no-iterator": "error",
+      "no-labels": ["error", { allowLoop: false, allowSwitch: false }],
+      "no-lone-blocks": "error",
+      "no-loss-of-precision": "error",
+      "no-misleading-character-class": "error",
+      "no-prototype-builtins": "error",
+      "no-useless-catch": "error",
+      "no-mixed-operators": ["error", {
+        groups: [
+          ["==", "!=", "===", "!==", ">", ">=", "<", "<="],
+          ["&&", "||"],
+          ["in", "instanceof"]
+        ],
+        allowSamePrecedence: true
+      }],
+      "no-mixed-spaces-and-tabs": "error",
+      "no-multi-spaces": "error",
+      "no-multi-str": "error",
+      "no-multiple-empty-lines": ["error", { max: 1, maxBOF: 0, maxEOF: 0 }],
+      "no-new": "error",
+      "no-new-func": "error",
+      "no-new-object": "error",
+      "no-new-symbol": "error",
+      "no-new-wrappers": "error",
+      "no-obj-calls": "error",
+      "no-octal": "error",
+      "no-octal-escape": "error",
+      "no-proto": "error",
+      "no-redeclare": ["error", { builtinGlobals: false }],
+      "no-regex-spaces": "error",
+      "no-return-assign": ["error", "except-parens"],
+      "no-self-assign": ["error", { props: true }],
+      "no-self-compare": "error",
+      "no-sequences": "error",
+      "no-shadow-restricted-names": "error",
+      "no-sparse-arrays": "error",
+      "no-tabs": "error",
+      "no-template-curly-in-string": "error",
+      "no-this-before-super": "error",
+      "no-throw-literal": "error",
+      "no-trailing-spaces": "error",
+      "no-undef": "error",
+      "no-undef-init": "error",
+      "no-unexpected-multiline": "error",
+      "no-unmodified-loop-condition": "error",
+      "no-unneeded-ternary": ["error", { defaultAssignment: false }],
+      "no-unreachable": "error",
+      "no-unreachable-loop": "error",
+      "no-unsafe-finally": "error",
+      "no-unsafe-negation": "error",
+      "no-unused-expressions": ["error", {
+        allowShortCircuit: true,
+        allowTernary: true,
+        allowTaggedTemplates: true
+      }],
+      "no-unused-vars": ["error", {
+        args: "none",
+        caughtErrors: "none",
+        ignoreRestSiblings: true,
+        vars: "all"
+      }],
+      "no-use-before-define": ["error", { functions: false, classes: false, variables: false }],
+      "no-useless-call": "error",
+      "no-useless-computed-key": "error",
+      "no-useless-constructor": "error",
+      "no-useless-escape": "error",
+      "no-useless-rename": "error",
+      "no-useless-return": "error",
+      /**
+       * 允许 void 用作表达式中，解决不需要给Promise赋值的场景
+       */
+      "no-void": ["error", { allowAsStatement: true }],
+      "no-whitespace-before-property": "error",
+      "no-with": "error",
+      "object-curly-newline": ["error", { multiline: true, consistent: true }],
+      "object-curly-spacing": ["error", "always"],
+      "object-property-newline": ["error", { allowMultiplePropertiesPerLine: true }],
+      "one-var": ["error", { initialized: "never" }],
+      "operator-linebreak": ["error", "after", { overrides: { "?": "before", ":": "before", "|>": "before" } }],
+      "padded-blocks": ["error", { blocks: "never", switches: "never", classes: "never" }],
+      "prefer-const": ["error", { destructuring: "all" }],
+      "prefer-promise-reject-errors": "error",
+      "prefer-regex-literals": ["error", { disallowRedundantWrapping: true }],
+      "quote-props": ["error", "as-needed"],
+      quotes: ["error", "single", { avoidEscape: true, allowTemplateLiterals: false }],
+      "rest-spread-spacing": ["error", "never"],
+      semi: ["error", "never"],
+      "semi-spacing": ["error", { before: false, after: true }],
+      "space-before-blocks": ["error", "always"],
+      "space-before-function-paren": ["error", "always"],
+      "space-in-parens": ["error", "never"],
+      "space-infix-ops": "error",
+      "space-unary-ops": ["error", { words: true, nonwords: false }],
+      "spaced-comment": ["error", "always", {
+        line: { markers: ["*package", "!", "/", ",", "="] },
+        block: { balanced: true, markers: ["*package", "!", ",", ":", "::", "flow-include"], exceptions: ["*"] }
+      }],
+      "symbol-description": "error",
+      "template-curly-spacing": ["error", "never"],
+      "template-tag-spacing": ["error", "never"],
+      "unicode-bom": ["error", "never"],
+      "use-isnan": ["error", {
+        enforceForSwitchCase: true,
+        enforceForIndexOf: true
+      }],
+      "valid-typeof": ["error", { requireStringLiterals: true }],
+      "wrap-iife": ["error", "any", { functionPrototypeMethods: true }],
+      "yield-star-spacing": ["error", "both"],
+      yoda: ["error", "never"],
+      "import/export": "error",
+      "import/first": "error",
+      "import/no-absolute-path": ["error", { esmodule: true, commonjs: true, amd: false }],
+      "import/no-duplicates": "error",
+      "import/no-named-default": "error",
+      "import/no-webpack-loader-syntax": "error",
+      /**
+       * 配置 import 顺序, 使其按优先级展示
+       */
+      "import/order": [
+        "error",
+        {
+          groups: [
+            "builtin",
+            // Node内置
+            "external",
+            // npm包
+            "internal",
+            // 项目内部
+            "parent",
+            // 父目录
+            "sibling",
+            // 同级
+            "index"
+            // 目录索引
+          ],
+          pathGroups: [
+            {
+              pattern: "@/**",
+              // 给别名路径特殊待遇
+              group: "internal",
+              position: "after"
+            }
+          ],
+          "newlines-between": "always",
+          // 分组间空行
+          alphabetize: {
+            // 字母表排序
+            order: "asc",
+            caseInsensitive: true
+          }
+        }
+      ],
+      "n/handle-callback-err": ["error", "^(err|error)$"],
+      "n/no-callback-literal": "error",
+      "n/no-deprecated-api": "error",
+      "n/no-exports-assign": "error",
+      "n/no-new-require": "error",
+      "n/no-path-concat": "error",
+      "n/process-exit-as-throw": "error",
+      "promise/param-names": "error"
+    }
+  }
+];
+
+// src/configs/jsonc.ts
+import pluginJsonc from "eslint-plugin-jsonc";
+import * as parserJsonc from "jsonc-eslint-parser";
+
+// src/configs/globs.ts
+var GLOB_JS = "**/*.?([cm])js";
+var GLOB_JSX = "**/*.?([cm])jsx";
+var GLOB_TS = "**/*.?([cm])ts";
+var GLOB_TSX = "**/*.?([cm])tsx";
+var GLOB_JSON = "**/*.json";
+var GLOB_JSON5 = "**/*.json5";
+var GLOB_JSONC = "**/*.jsonc";
+var GLOB_VUE = "**/*.vue";
+
+// src/configs/jsonc.ts
+var jsonc = [
+  {
+    name: "ted/json",
+    files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC],
+    languageOptions: {
+      parser: parserJsonc
+    },
+    plugins: {
+      jsonc: pluginJsonc
+    },
+    rules: {
+      ...pluginJsonc.configs["recommended-with-jsonc"].rules,
+      "jsonc/quote-props": "off",
+      "jsonc/quotes": "off"
+    }
+  }
+];
+
+// src/configs/sort.ts
+var sortPackageJson = [
+  {
+    name: "ted/sort/package.json",
+    files: ["**/package.json"],
+    rules: {
+      "jsonc/sort-array-values": [
+        "error",
+        {
+          order: { type: "asc" },
+          pathPattern: "^files$"
+        }
+      ],
+      "jsonc/sort-keys": [
+        "error",
+        {
+          order: [
+            "name",
+            "version",
+            "private",
+            "packageManager",
+            "description",
+            "type",
+            "keywords",
+            "license",
+            "homepage",
+            "bugs",
+            "repository",
+            "author",
+            "contributors",
+            "funding",
+            "files",
+            "main",
+            "module",
+            "types",
+            "exports",
+            "typesVersions",
+            "sideEffects",
+            "unpkg",
+            "jsdelivr",
+            "browser",
+            "bin",
+            "man",
+            "directories",
+            "publishConfig",
+            "scripts",
+            "peerDependencies",
+            "peerDependenciesMeta",
+            "optionalDependencies",
+            "dependencies",
+            "devDependencies",
+            "engines",
+            "config",
+            "overrides",
+            "pnpm",
+            "husky",
+            "lint-staged",
+            "eslintConfig",
+            "prettier"
+          ],
+          pathPattern: "^$"
+        },
+        {
+          order: { type: "asc" },
+          pathPattern: "^(?:dev|peer|optional|bundled)?[Dd]ependencies(Meta)?$"
+        },
+        {
+          order: ["types", "require", "import", "default"],
+          pathPattern: "^exports.*$"
+        },
+        {
+          order: { type: "asc" },
+          pathPattern: "^(?:resolutions|overrides|pnpm.overrides)$"
+        }
+      ]
+    }
+  }
+];
+var sortTsconfig = [
+  {
+    name: "ted/sort/tsconfig.json",
+    files: ["**/tsconfig.json", "**/tsconfig.*.json"],
+    rules: {
+      "jsonc/sort-keys": [
+        "error",
+        {
+          order: [
+            "extends",
+            "compilerOptions",
+            "references",
+            "files",
+            "include",
+            "exclude"
+          ],
+          pathPattern: "^$"
+        },
+        {
+          order: [
+            /* Projects */
+            "incremental",
+            "composite",
+            "tsBuildInfoFile",
+            "disableSourceOfProjectReferenceRedirect",
+            "disableSolutionSearching",
+            "disableReferencedProjectLoad",
+            /* Language and Environment */
+            "target",
+            "jsx",
+            "jsxFactory",
+            "jsxFragmentFactory",
+            "jsxImportSource",
+            "lib",
+            "moduleDetection",
+            "noLib",
+            "reactNamespace",
+            "useDefineForClassFields",
+            "emitDecoratorMetadata",
+            "experimentalDecorators",
+            /* Modules */
+            "baseUrl",
+            "rootDir",
+            "rootDirs",
+            "customConditions",
+            "module",
+            "moduleResolution",
+            "moduleSuffixes",
+            "noResolve",
+            "paths",
+            "resolveJsonModule",
+            "resolvePackageJsonExports",
+            "resolvePackageJsonImports",
+            "typeRoots",
+            "types",
+            "allowArbitraryExtensions",
+            "allowImportingTsExtensions",
+            "allowUmdGlobalAccess",
+            /* JavaScript Support */
+            "allowJs",
+            "checkJs",
+            "maxNodeModuleJsDepth",
+            /* Type Checking */
+            "strict",
+            "strictBindCallApply",
+            "strictFunctionTypes",
+            "strictNullChecks",
+            "strictPropertyInitialization",
+            "allowUnreachableCode",
+            "allowUnusedLabels",
+            "alwaysStrict",
+            "exactOptionalPropertyTypes",
+            "noFallthroughCasesInSwitch",
+            "noImplicitAny",
+            "noImplicitOverride",
+            "noImplicitReturns",
+            "noImplicitThis",
+            "noPropertyAccessFromIndexSignature",
+            "noUncheckedIndexedAccess",
+            "noUnusedLocals",
+            "noUnusedParameters",
+            "useUnknownInCatchVariables",
+            /* Emit */
+            "declaration",
+            "declarationDir",
+            "declarationMap",
+            "downlevelIteration",
+            "emitBOM",
+            "emitDeclarationOnly",
+            "importHelpers",
+            "importsNotUsedAsValues",
+            "inlineSourceMap",
+            "inlineSources",
+            "isolatedDeclarations",
+            "mapRoot",
+            "newLine",
+            "noEmit",
+            "noEmitHelpers",
+            "noEmitOnError",
+            "outDir",
+            "outFile",
+            "preserveConstEnums",
+            "preserveValueImports",
+            "removeComments",
+            "sourceMap",
+            "sourceRoot",
+            "stripInternal",
+            /* Interop Constraints */
+            "allowSyntheticDefaultImports",
+            "esModuleInterop",
+            "forceConsistentCasingInFileNames",
+            "isolatedModules",
+            "preserveSymlinks",
+            "verbatimModuleSyntax",
+            /* Completeness */
+            "skipDefaultLibCheck",
+            "skipLibCheck"
+          ],
+          pathPattern: "^compilerOptions$"
+        }
+      ]
+    }
+  }
+];
+
+// src/configs/typescript.ts
+import tseslint from "typescript-eslint";
+var typescriptCore = tseslint.config({
+  extends: [
+    ...tseslint.configs.recommended,
+    ...tseslint.configs.stylistic
+  ],
+  name: "ted/typescript",
+  files: [GLOB_TS, GLOB_TSX],
+  languageOptions: {
+    parserOptions: {
+      projectService: true
+    }
+  },
+  rules: {
+    /* ----------- Override recommended rules --------- */
+    /**
+     * 允许使用 // @ts-ignore // @ts-nocheck // @ts-expect-error
+     * @reason 这种注释本身就是对特殊代码的说明
+     */
+    "@typescript-eslint/ban-ts-comment": [
+      "error",
+      {
+        "ts-expect-error": "allow-with-description",
+        "ts-ignore": true,
+        "ts-nocheck": true,
+        "ts-check": false,
+        minimumDescriptionLength: 3
+      }
+    ],
+    /**
+     * 禁止对没有 then 方法的对象使用 await
+     */
+    "@typescript-eslint/await-thenable": "off",
+    /**
+     * 避免错误的使用 Promise
+     * @reason 有些场景需要允许有返回值的情况下使用void
+     */
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      { checksVoidReturn: false }
+    ],
+    /**
+     * 禁止明确指定 any 类型
+     * @reason 某些Rest参数的场景下需要为任意类型, 例如定义AnyFunction
+     */
+    "@typescript-eslint/no-explicit-any": [
+      "error",
+      { ignoreRestArgs: true }
+    ],
+    /**
+     * 禁止未使用变量声明
+     * @reason 某些函数参数可能未使用，但需要被定义
+     */
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { argsIgnorePattern: "^_" }
+    ],
+    /* ----------- End: Override recommended rules --------- */
+    /* ----------- Override stylistic rules --------- */
+    /**
+     * 类型断言必须使用 as Type，禁止使用 <Type>，禁止对对象字面量进行类型断言（断言成 any 是允许的）
+     * @reason <Type> 容易被理解为 jsx
+     */
+    "@typescript-eslint/consistent-type-assertions": [
+      "error",
+      {
+        assertionStyle: "as",
+        objectLiteralTypeAssertions: "never"
+      }
+    ],
+    /**
+     * 限制数组类型必须使用 Array<T> 或 T[]
+     * @reason 允许灵活运用两者
+     */
+    "@typescript-eslint/array-type": ["error", { default: "array-simple" }],
+    /**
+     * 优先使用 interface 而不是 type
+     * @reason interface 可以 implement, extend 和 merge
+     */
+    "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+    /**
+     * 使用 RegExp#exec 而不是 String#match
+     */
+    "@typescript-eslint/prefer-regexp-exec": "off",
+    /**
+     * 使用 ?? 替代 ||
+     * @reason 除了条件校验的场景, ??往往更符合开发者本意
+     */
+    "@typescript-eslint/prefer-nullish-coalescing": ["error", {
+      ignoreConditionalTests: true
+    }],
+    /* ----------- End: Override stylistic rules --------- */
+    /* ----------- Custom enhance rules --------- */
+    /**
+     * 条件判断需要严格检查
+     */
+    "@typescript-eslint/strict-boolean-expressions": ["error", {
+      /**
+       * 允许自动判断 Nullish 和 Boolean 值
+       */
+      allowNullableBoolean: true,
+      /**
+       * 允许自动判断 Nullish 和 Object 值
+       */
+      allowNullableObject: true
+    }],
+    /* ----------- End: Custom enhance rules --------- */
+    /* ----------- Override JS ----------- */
+    /**
+     * 关闭 js no-undef 规则
+     * @reason TS 自带该校验
+     */
+    "no-undef": "off"
+  }
+});
+function typescript() {
+  return [
+    ...typescriptCore
+  ];
+}
+
+// src/configs/react.ts
+import pluginReact from "eslint-plugin-react";
+import pluginReactHooks from "eslint-plugin-react-hooks";
+function react() {
+  return [
+    {
+      name: "ted/react",
+      files: [GLOB_JS, GLOB_JSX, GLOB_TS, GLOB_TSX],
+      plugins: {
+        react: pluginReact,
+        "react-hooks": pluginReactHooks
+      },
+      rules: {
+        ...pluginReact.configs.recommended.rules,
+        ...pluginReact.configs["jsx-runtime"].rules,
+        ...pluginReactHooks.configs.recommended.rules,
+        /**
+         * 配置 JSX 缩进
+         */
+        "react/jsx-indent": ["error", 2],
+        "react/jsx-indent-props": ["error", 2],
+        /**
+         * 类型相关的约束交给 TypeScript
+         */
+        "react/prop-types": "off",
+        /**
+         * JSX元素单行时最多3个属性, 超出换行, 多行时最多一个属性
+         */
+        "react/jsx-max-props-per-line": ["error", {
+          maximum: {
+            single: 3,
+            multi: 1
+          }
+        }],
+        /**
+         * 当出现多行时确保第一个属性也换行
+         */
+        "react/jsx-first-prop-new-line": ["error", "multiline-multiprop"],
+        /**
+         * 强制JSX多行元素的结束括号与标签对其
+         */
+        "react/jsx-closing-bracket-location": ["error", "tag-aligned"],
+        /**
+         * 使用括号包裹多行 JSX 并且要求其换行
+         */
+        "react/jsx-wrap-multilines": ["error", {
+          declaration: "parens-new-line",
+          assignment: "parens-new-line",
+          return: "parens-new-line",
+          arrow: "parens-new-line",
+          condition: "parens-new-line",
+          logical: "parens-new-line",
+          prop: "parens-new-line"
+        }]
+      }
+    }
+  ];
+}
+
+// src/configs/vue.ts
+import pluginVue from "eslint-plugin-vue";
+import parserVue from "vue-eslint-parser";
+import tseslint2 from "typescript-eslint";
+function vue(options) {
+  const vueTs = options.typescript ? typescriptCore.filter((config) => config.name !== "typescript-eslint/base").map((config) => {
+    return {
+      ...config,
+      files: [GLOB_VUE],
+      name: `ted/vue/${config.name?.replace("ted/", "") ?? "anonymous"}`
+    };
+  }) : [];
+  return [
+    ...vueTs,
+    {
+      name: "ted/vue/auto-imports",
+      // This allows Vue plugin to work with auto imports
+      // https://github.com/vuejs/eslint-plugin-vue/pull/2422
+      languageOptions: {
+        globals: {
+          computed: "readonly",
+          defineEmits: "readonly",
+          defineExpose: "readonly",
+          defineProps: "readonly",
+          onMounted: "readonly",
+          onUnmounted: "readonly",
+          reactive: "readonly",
+          ref: "readonly",
+          shallowReactive: "readonly",
+          shallowRef: "readonly",
+          toRef: "readonly",
+          toRefs: "readonly",
+          watch: "readonly",
+          watchEffect: "readonly"
+        }
+      },
+      plugins: {
+        vue: pluginVue
+      }
+    },
+    {
+      name: "ted/vue",
+      files: [GLOB_VUE],
+      languageOptions: {
+        parser: parserVue,
+        parserOptions: {
+          ecmaFeatures: {
+            jsx: true
+          },
+          extraFileExtensions: [".vue"],
+          parser: options.typescript ? "@typescript-eslint/parser" : null,
+          sourceType: "module"
+        }
+      },
+      plugins: {
+        "@typescript-eslint": tseslint2.plugin,
+        vue: pluginVue
+      },
+      rules: {
+        ...pluginVue.configs["vue3-strongly-recommended"].rules,
+        /**
+         * 组件名称使用时PascalCase形式
+         * @reason 统一团队组件使用方式
+         */
+        "vue/component-name-in-template-casing": [
+          "error",
+          "PascalCase",
+          {
+            registeredComponentsOnly: false
+          }
+        ],
+        /**
+         * 组件以Options引入时PascalCase形式, 适应目前社区主流的PascalCase命名风格
+         * @reason 统一团队组件使用方式
+         */
+        "vue/component-options-name-casing": ["error", "PascalCase"],
+        /**
+         * 组件命名必须以PascalCase形式
+         * @reason 统一团队组件使用方式
+         */
+        "vue/component-definition-name-casing": [
+          "error",
+          "PascalCase"
+        ],
+        /**
+         * 事件名称必须以camelCase形式
+         * @reason 遵循JavaScript的约定，camelCase更加自然
+         */
+        "vue/custom-event-name-casing": ["error", "camelCase"],
+        /**
+         * 允许同时使用 v-if 和 v-for 在一起
+         * @reason v-if 和 v-for 并用优先级是基础逻辑, 不需要强制分开
+         */
+        "vue/no-use-v-if-with-v-for": "off",
+        /**
+         * 组件名不要求强制使用多个单词
+         */
+        "vue/multi-word-component-names": "off",
+        /**
+         * Off conflict rules
+         */
+        "func-call-spacing": "off"
+      }
+    }
+  ];
+}
+
+// src/index.ts
+function ted(config = [], {
+  typescript: enableTypescript = true,
+  vue: enableVue = true,
+  react: enableReact = false
+} = {}) {
+  const configs = [...javascript, ...jsonc, ...sortPackageJson, ...sortTsconfig];
+  if (Object.keys(config).length > 0) {
+    configs.push(...Array.isArray(config) ? config : [config]);
+  }
+  if (enableTypescript) {
+    configs.push(...typescript());
+  }
+  if (enableVue) {
+    configs.push(...vue({ typescript: enableTypescript }));
+  }
+  if (enableReact) {
+    configs.push(...react());
+  }
+  return configs;
+}
+export {
+  ted
+};
+/*! eslint-config-standard. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
+/*! 截止到目前 eslint-config-standard 还未发布 flat config 版本, 故直接从源码复制 */

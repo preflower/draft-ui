@@ -1,0 +1,18 @@
+import { Linter } from 'eslint';
+
+/**
+ * Ted's preset configs
+ * @param config
+ * @param features
+ * @returns
+ */
+declare function ted(config?: Linter.Config | Linter.Config[], { typescript: enableTypescript, vue: enableVue, react: enableReact }?: Partial<{
+    /** Typescript support. Auto-enable. */
+    typescript: boolean;
+    /** Vue support. Auto-enable. */
+    vue: boolean;
+    /** React support. Default: false */
+    react: boolean;
+}>): Linter.Config[];
+
+export { ted };
