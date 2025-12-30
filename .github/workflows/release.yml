@@ -10,6 +10,7 @@ on:
 permissions:
   contents: write
   id-token: write
+  pull-requests: write
 env:
   CI: true
   PNPM_CACHE_FOLDER: .pnpm-store
