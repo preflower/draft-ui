@@ -1,5 +1,7 @@
 # Draft UI
 
+[![Documentation](https://img.shields.io/badge/docs-online-6366f1?style=flat-square)](https://preflower.github.io/draft-ui/) [![简体中文](https://img.shields.io/badge/lang-简体中文-334155?style=flat-square)](./README.zh-CN.md)
+
 A shadcn/ui-inspired component library for Vue and React, built with pnpm monorepo.
 
 ## 🚀 Features
@@ -63,6 +65,8 @@ Draft UI uses a `components.json` file in your project root to manage paths:
 ```
 
 ## 💻 Documentation
+
+Online Documentation: [https://preflower.github.io/draft-ui/](https://preflower.github.io/draft-ui/)
 
 Run the documentation site locally:
 
