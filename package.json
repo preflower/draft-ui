@@ -27,6 +27,7 @@
   },
   "scripts": {
     "dev": "pnpm --filter @draft-ui/docs dev",
+    "build:docs": "pnpm --filter @draft-ui/docs build",
     "build": "pnpm -r build",
     "preview": "pnpm --filter @draft-ui/docs preview",
     "lint": "eslint .",

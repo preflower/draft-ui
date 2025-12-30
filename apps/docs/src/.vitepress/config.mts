@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'Draft UI',
   description: 'A shadcn-like component library for Vue and React',
+  base: '/draft-ui/',
 
   locales: {
     root: {
