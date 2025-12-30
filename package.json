@@ -1,0 +1,45 @@
+{
+  "name": "draft-ui-monorepo",
+  "version": "0.0.1",
+  "private": true,
+  "packageManager": "pnpm@9.0.0",
+  "description": "A shadcn-like component library for Vue and React",
+  "keywords": [
+    "ui-kit",
+    "vue",
+    "react",
+    "monorepo",
+    "shadcn"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/preflower/draft-ui#readme",
+  "bugs": {
+    "url": "https://github.com/preflower/draft-ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/preflower/draft-ui.git"
+  },
+  "author": "Ted Lin <preflower.lin@gmail.com> (https://github.com/preflower)",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "dev": "pnpm --filter @draft-ui/docs dev",
+    "build": "pnpm -r build",
+    "preview": "pnpm --filter @draft-ui/docs preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "type-check": "pnpm -r exec tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-ted": "^4.1.1",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

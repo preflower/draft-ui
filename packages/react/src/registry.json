@@ -1,0 +1,10 @@
+{
+  "components": {
+    "button": {
+      "dependencies": [],
+      "files": [
+        "Button.tsx"
+      ]
+    }
+  }
+}

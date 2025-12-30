@@ -1,0 +1,30 @@
+{
+  "name": "@draft-ui/vue",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Vue components for Draft UI",
+  "type": "module",
+  "files": [
+    "src"
+  ],
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "vue-tsc",
+    "type-check": "vue-tsc --noEmit"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.0"
+  },
+  "dependencies": {
+    "@vueuse/core": "^10.7.0",
+    "lucide-vue-next": "^0.562.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.0",
+    "typescript": "^5.0.0",
+    "vue": "^3.4.0",
+    "vue-tsc": "^2.0.0"
+  }
+}

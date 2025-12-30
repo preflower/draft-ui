@@ -1,0 +1,14 @@
+@import "tailwindcss";
+@source "../../";
+@source "../../../../../packages/vue/src";
+
+/* Custom styles for documentation site */
+.example-block {
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin: 16px 0;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}

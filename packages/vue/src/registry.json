@@ -1,0 +1,32 @@
+{
+  "components": {
+    "dotted-glow-background": {
+      "dependencies": [
+        "@vueuse/core"
+      ],
+      "files": [
+        "DottedGlowBackground.vue",
+        "index.ts"
+      ]
+    },
+    "flip-countdown": {
+      "dependencies": [
+        "@vueuse/core"
+      ],
+      "files": [
+        "FlipCountdown.vue",
+        "FlipNumber.vue",
+        "index.ts"
+      ]
+    },
+    "star-rate": {
+      "dependencies": [
+        "lucide-vue-next"
+      ],
+      "files": [
+        "StarRate.vue",
+        "index.ts"
+      ]
+    }
+  }
+}
