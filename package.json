@@ -24,7 +24,7 @@
   "scripts": {
     "dev": "pnpm --filter @draft-ui/docs dev",
     "build:docs": "pnpm --filter @draft-ui/docs build",
-    "build": "pnpm -r build",
+    "build": "pnpm --filter @draft-ui/cli build",
     "preview": "pnpm --filter @draft-ui/docs preview",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
