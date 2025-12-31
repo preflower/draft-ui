@@ -5,7 +5,7 @@ A star rating component with support for half stars and custom styling.
 ## Installation
 
 ```bash
-npx draft-vue add star-rate
+npx draft-cli vue add star-rate
 ```
 
 ## Usage

@@ -5,7 +5,7 @@ A classic flip animation component for numbers or characters.
 ## Installation
 
 ```bash
-npx draft-vue add flip-countdown
+npx draft-cli vue add flip-countdown
 ```
 
 ## Usage

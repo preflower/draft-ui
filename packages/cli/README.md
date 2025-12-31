@@ -14,29 +14,25 @@ You can install the CLI globally or use it with your favorite package manager:
 
 ```bash
 # Global installation
-npm install -g draft-ui
+npm install -g draft-cli
 # or
-pnpm add -g draft-ui
+pnpm add -g draft-cli
 
 # Or use it directly without installation
-pnpm dlx draft-ui init
-npx draft-ui init
+pnpm dlx draft-cli init
+npx draft-cli init
 ```
 
 ## Usage
 
-The CLI provides two main entry points depending on your framework: `draft-vue` and `draft-react`.
+The CLI provides a unified entry point `draft-cli` for all operations.
 
 ### Initialize
 
 Initialize your project and create a `components.json` file:
 
 ```bash
-# For Vue projects
-pnpm draft-vue init
-
-# For React projects
-pnpm draft-react init
+draft-cli init
 ```
 
 ### Add Components
@@ -45,10 +41,10 @@ Add a component to your project:
 
 ```bash
 # For Vue
-pnpm draft-vue add button
+draft-cli vue add button
 
 # For React
-pnpm draft-react add button
+draft-cli react add button
 ```
 
 ## Configuration

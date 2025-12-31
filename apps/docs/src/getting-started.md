@@ -10,13 +10,13 @@ Add components directly using the CLI:
 
 ```bash
 # Initialize project
-npx draft-ui init
+npx draft-cli init
 
 # Add a Vue component
-pnpm dlx draft-vue add button
+npx draft-cli vue add button
 
 # Add a React component
-pnpm dlx draft-react add button
+npx draft-cli react add button
 ```
 
 ## Configuration

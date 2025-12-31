@@ -5,7 +5,7 @@ An animated dotted background with glowing effects that supports dark mode.
 ## Installation
 
 ```bash
-npx draft-vue add dotted-glow-background
+npx draft-cli vue add dotted-glow-background
 ```
 
 ## Usage

@@ -9,7 +9,7 @@ A shadcn/ui-inspired component library for Vue and React, built with pnpm monore
 - **Monorepo**: Powered by pnpm workspaces.
 - **Copy-Paste Architecture**: Components are imported directly into your project files (no `node_modules` bloating).
 - **Multi-Framework**: First-class support for both **Vue 3** and **React**.
-- **CLI Utility**: Easy component management with `draft-ui`.
+- **CLI Utility**: Easy component management with `draft-cli`.
 - **shadcn/ui Compatible**: Reuses `components.json` for configuration.
 - **Documentation**: Built-in VitePress docs with interactive examples.
 
@@ -20,7 +20,7 @@ A shadcn/ui-inspired component library for Vue and React, built with pnpm monore
 ├── apps
 │   └── docs          # VitePress documentation
 ├── packages
-│   ├── cli           # CLI tool (draft-vue / draft-react)
+│   ├── cli           # CLI tool (draft-cli)
 │   ├── react         # React component templates
 │   └── vue           # Vue component templates
 └── test-app          # Test workspace
@@ -41,16 +41,16 @@ To use the CLI in your project:
 
 ```bash
 # Initialize project
-npx draft-ui init
+npx draft-cli init
 
 # Add a component (Vue)
-pnpm draft-vue add [component]
+npx draft-cli vue add [component]
 
 # Add a component (React)
-pnpm draft-react add [component]
+npx draft-cli react add [component]
 ```
 
-> Note: `draft-vue` and `draft-react` are provided as bin aliases in the `draft-ui` package.
+> Note: `draft-cli` is the unified entry point for managing components.
 
 ## 📄 Configuration
 

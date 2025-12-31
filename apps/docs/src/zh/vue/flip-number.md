@@ -5,7 +5,7 @@
 ## 安装
 
 ```bash
-npx draft-vue add flip-countdown
+npx draft-cli vue add flip-countdown
 ```
 
 ## 使用

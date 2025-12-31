@@ -19,16 +19,15 @@
     "directory": "packages/cli"
   },
   "bin": {
-    "draft-vue": "./dist/vue.js",
-    "draft-react": "./dist/react.js"
+    "draft-cli": "./dist/index.js"
   },
   "publishConfig": {
     "access": "public",
     "provenance": true
   },
   "scripts": {
-    "build": "tsup src/bin/vue.ts src/bin/react.ts --format esm --clean --dts",
-    "dev": "tsup src/bin/vue.ts src/bin/react.ts --format esm --watch --clean"
+    "build": "tsup src/bin/index.ts --format esm --clean --dts",
+    "dev": "tsup src/bin/index.ts --format esm --watch --clean"
   },
   "dependencies": {
     "chalk": "^5.3.0",

@@ -10,13 +10,13 @@ Draft UI 是一个类似 shadcn 的组件库。你不需要安装整个包，而
 
 ```bash
 # 初始化项目
-npx draft-vue init
+npx draft-cli init
 
 # 添加 Vue 组件
-pnpm dlx draft-vue add button
+npx draft-cli vue add button
 
 # 添加 React 组件
-pnpm dlx draft-react add button
+npx draft-cli react add button
 ```
 
 这将会把组件文件复制到你的项目中，你可以根据需要自由修改。

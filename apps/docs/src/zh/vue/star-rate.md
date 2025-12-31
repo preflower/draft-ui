@@ -5,7 +5,7 @@
 ## 安装
 
 ```bash
-npx draft-vue add star-rate
+npx draft-cli vue add star-rate
 ```
 
 ## 使用

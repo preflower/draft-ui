@@ -9,7 +9,7 @@
 - **Monorepo**: 由 pnpm workspaces 驱动。
 - **复制粘贴架构**: 组件直接导入到您的项目文件中（无需安装笨重的 npm 包）。
 - **多框架支持**: 原生支持 **Vue 3** 和 **React**。
-- **CLI 工具**: 使用 `draft-ui` 轻松管理组件。
+- **CLI 工具**: 使用 `draft-cli` 轻松管理组件。
 - **shadcn/ui 兼容**: 复用 `components.json` 进行配置。
 - **文档**: 内置 VitePress 文档，包含交互式示例。
 
@@ -20,7 +20,7 @@
 ├── apps
 │   └── docs          # VitePress 文档
 ├── packages
-│   ├── cli           # CLI 工具 (draft-vue / draft-react)
+│   ├── cli           # CLI 工具 (draft-cli)
 │   ├── react         # React 组件模板
 │   └── vue           # Vue 组件模板
 └── test-app          # 测试工作区
@@ -41,16 +41,16 @@ pnpm build
 
 ```bash
 # 初始化项目
-npx draft-ui init
+npx draft-cli init
 
 # 添加组件 (Vue)
-pnpm dlx draft-vue add [component]
+npx draft-cli vue add [component]
 
 # 添加组件 (React)
-pnpm dlx draft-react add [component]
+npx draft-cli react add [component]
 ```
 
-> 注意：`draft-vue` 和 `draft-react` 是 `draft-ui` 包中提供的二进制别名。
+> 注意：`draft-cli` 是管理组件的统一入口。
 
 ## 📄 配置说明
 
