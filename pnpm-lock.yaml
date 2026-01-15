@@ -156,15 +156,6 @@ importers:
         specifier: ^2.0.0
         version: 2.2.12(typescript@5.9.3)
 
-  test-app:
-    dependencies:
-      '@vueuse/core':
-        specifier: ^10.11.1
-        version: 10.11.1(vue@3.5.26(typescript@5.9.3))
-      draft-cli:
-        specifier: workspace:*
-        version: link:../packages/cli
-
 packages:
 
   '@algolia/abtesting@1.12.2':
