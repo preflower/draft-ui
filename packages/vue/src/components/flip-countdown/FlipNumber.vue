@@ -1,48 +1,7 @@
-<template>
-  <!-- 翻页数字容器 -->
-  <div
-    ref="flipNumber"
-    class="flip-number"
-  >
-    <!-- 上半部分 - 显示下一个数字 -->
-    <div
-      class="flip-number__half flip-number__half--top"
-      :style="{
-        lineHeight: `${height}px`
-      }"
-    >
-      {{ nextValue }}
-    </div>
-    <!-- 翻页动画层 -->
-    <div
-      class="flip-number__fold"
-      :class="[
-        isFlipping ? 'flip-number__fold--flipping' : 'flip-number__fold--end'
-      ]"
-    >
-      <!-- 翻页前面 - 显示当前数字 -->
-      <div
-        class="flip-number__fold-side flip-number__fold-side--front"
-        :style="{
-          lineHeight: `${height}px`
-        }"
-      >
-        {{ currentValue }}
-      </div>
-      <!-- 翻页背面 - 显示下一个数字 -->
-      <div class="flip-number__fold-side flip-number__fold-side--back">
-        {{ nextValue }}
-      </div>
-    </div>
-    <!-- 下半部分 - 显示当前数字 -->
-    <div class="flip-number__half flip-number__half--bottom">
-      {{ currentValue }}
-    </div>
-  </div>
-</template>
 <script setup lang="ts">
 import { useElementSize } from '@vueuse/core'
 import { ref, watch } from 'vue'
+
 interface Props {
   value: string
 }
@@ -66,6 +25,50 @@ watch(() => props.value, (newValue) => {
 const flipNumber = ref<HTMLElement | null>(null)
 const { height } = useElementSize(flipNumber)
 </script>
+
+<template>
+  <!-- 翻页数字容器 -->
+  <div
+    ref="flipNumber"
+    class="flip-number"
+  >
+    <!-- 上半部分 - 显示下一个数字 -->
+    <div
+      class="flip-number__half flip-number__half--top"
+      :style="{
+        lineHeight: `${height}px`,
+      }"
+    >
+      {{ nextValue }}
+    </div>
+    <!-- 翻页动画层 -->
+    <div
+      class="flip-number__fold"
+      :class="[
+        isFlipping ? 'flip-number__fold--flipping' : 'flip-number__fold--end',
+      ]"
+    >
+      <!-- 翻页前面 - 显示当前数字 -->
+      <div
+        class="flip-number__fold-side flip-number__fold-side--front"
+        :style="{
+          lineHeight: `${height}px`,
+        }"
+      >
+        {{ currentValue }}
+      </div>
+      <!-- 翻页背面 - 显示下一个数字 -->
+      <div class="flip-number__fold-side flip-number__fold-side--back">
+        {{ nextValue }}
+      </div>
+    </div>
+    <!-- 下半部分 - 显示当前数字 -->
+    <div class="flip-number__half flip-number__half--bottom">
+      {{ currentValue }}
+    </div>
+  </div>
+</template>
+
 <style>
 @layer base {
   .flip-number {

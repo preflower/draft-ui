@@ -1,13 +1,25 @@
-import { ted } from 'eslint-config-ted'
+import antfu from '@antfu/eslint-config'
 
-export default ted(
-  [
-    /* your custom config */
+export default antfu({
+  typescript: true,
+  vue: true,
+  react: {
+    files: [
+      'apps/docs/src/react/**/*.{js,jsx,ts,tsx}',
+      'packages/react/**/*.{js,jsx,ts,tsx}',
+    ],
+  },
+  ignores: [
+    '**/dist',
+    '**/node_modules',
+    '**/coverage',
+    '**/.vitepress/cache',
+    '**/.vitepress/dist',
+    '**/test-app/',
   ],
-  {
-    // Default options
-    typescript: true,
-    vue: true,
-    react: true
-  }
-)
+}, {
+  files: ['packages/cli/**/*.ts'],
+  rules: {
+    'node/prefer-global/process': 'off',
+  },
+})

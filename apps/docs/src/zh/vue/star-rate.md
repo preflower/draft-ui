@@ -18,8 +18,8 @@ npx draft-cli vue add star-rate
 
 ```vue
 <script setup>
-import { ref } from 'vue'
 import { StarRate } from '@draft-ui/vue'
+import { ref } from 'vue'
 
 const rating = ref(3.5)
 </script>

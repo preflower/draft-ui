@@ -1,4 +1,4 @@
-import { createRequire } from 'module'
+import { createRequire } from 'node:module'
 
 import { Command } from 'commander'
 
@@ -15,10 +15,12 @@ let pkg: PackageJson = { version: '0.0.1' }
 
 try {
   pkg = require('../../package.json')
-} catch {
+}
+catch {
   try {
     pkg = require('../package.json')
-  } catch {
+  }
+  catch {
     pkg = { version: '0.0.1' }
   }
 }

@@ -1,4 +1,4 @@
-import path from 'path'
+import path from 'node:path'
 
 import chalk from 'chalk'
 import fs from 'fs-extra'
@@ -12,17 +12,17 @@ const DEFAULT_CONFIG = {
     config: 'tailwind.config.js',
     css: 'src/index.css',
     baseColor: 'slate',
-    cssVariables: true
+    cssVariables: true,
   },
   aliases: {
     components: '@/components',
     utils: '@/lib/utils',
     ui: '@/components/ui',
-    draft: '@/components/draft'
-  }
+    draft: '@/components/draft',
+  },
 }
 
-export async function initProject () {
+export async function initProject() {
   const cwd = process.cwd()
   const configPath = path.resolve(cwd, 'components.json')
 
@@ -36,7 +36,8 @@ export async function initProject () {
   try {
     await fs.writeJson(configPath, DEFAULT_CONFIG, { spaces: 2 })
     spinner.succeed(chalk.green('Initialized components.json successfully!'))
-  } catch (error) {
+  }
+  catch (error) {
     spinner.fail(chalk.red(`Failed to initialize project: ${error}`))
   }
 }

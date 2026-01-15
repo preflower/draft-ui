@@ -1,37 +1,25 @@
-<template>
-  <div
-    ref="containerRef"
-    style="position: absolute; inset: 0"
-  >
-    <canvas
-      ref="canvasRef"
-      style="display: block; width: 100%; height: 100%"
-    />
-  </div>
-</template>
-
 <script setup lang="ts">
 import { useDark } from '@vueuse/core' // 强烈推荐，用于简洁的暗黑模式检测
-import { ref, onMounted, onUnmounted, watch, computed } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 
 // 1. Props (与之前相同)
 interface DottedGlowBackgroundProps {
-  gap?: number;
-  radius?: number;
-  color?: string;
-  darkColor?: string;
-  glowColor?: string;
-  darkGlowColor?: string;
-  colorLightVar?: string;
-  colorDarkVar?: string;
-  glowColorLightVar?: string;
-  glowColorDarkVar?: string;
-  opacity?: number;
-  backgroundOpacity?: number;
-  speedMin?: number;
-  speedMax?: number;
-  speedScale?: number;
-  animate?: boolean;
+  gap?: number
+  radius?: number
+  color?: string
+  darkColor?: string
+  glowColor?: string
+  darkGlowColor?: string
+  colorLightVar?: string
+  colorDarkVar?: string
+  glowColorLightVar?: string
+  glowColorDarkVar?: string
+  opacity?: number
+  backgroundOpacity?: number
+  speedMin?: number
+  speedMax?: number
+  speedScale?: number
+  animate?: boolean
 }
 
 const props = withDefaults(defineProps<DottedGlowBackgroundProps>(), {
@@ -44,7 +32,7 @@ const props = withDefaults(defineProps<DottedGlowBackgroundProps>(), {
   speedMin: 0.4,
   speedMax: 1.3,
   speedScale: 1,
-  animate: true
+  animate: true,
 })
 
 // 2. DOM Refs (标准 Vue 方式)
@@ -52,18 +40,17 @@ const containerRef = ref<HTMLDivElement | null>(null)
 const canvasRef = ref<HTMLCanvasElement | null>(null)
 
 // 3. 辅助函数 (CSS 变量)
-const resolveCssVariable = (
-  el: Element,
-  variableName?: string
-): string | null => {
-  if (variableName == null) return null
+function resolveCssVariable(el: Element, variableName?: string): string | null {
+  if (variableName == null)
+    return null
   const normalized = variableName.startsWith('--')
     ? variableName
     : `--${variableName}`
   const fromEl = getComputedStyle(el as Element)
     .getPropertyValue(normalized)
     .trim()
-  if (fromEl) return fromEl
+  if (fromEl)
+    return fromEl
   const root = document.documentElement
   const fromRoot = getComputedStyle(root).getPropertyValue(normalized).trim()
   return fromRoot || null
@@ -78,7 +65,8 @@ const resolvedColor = computed(() => {
   if (isDark.value) {
     const varDot = resolveCssVariable(container, props.colorDarkVar)
     return varDot ?? props.darkColor ?? props.color
-  } else {
+  }
+  else {
     const varDot = resolveCssVariable(container, props.colorLightVar)
     return varDot ?? props.color
   }
@@ -89,17 +77,18 @@ const resolvedGlowColor = computed(() => {
   if (isDark.value) {
     const varGlow = resolveCssVariable(container, props.glowColorDarkVar)
     return varGlow ?? props.darkGlowColor ?? props.glowColor
-  } else {
+  }
+  else {
     const varGlow = resolveCssVariable(container, props.glowColorLightVar)
     return varGlow ?? props.glowColor
   }
 })
 
-interface Dot { x: number; y: number; phase: number; speed: number }
+interface Dot { x: number, y: number, phase: number, speed: number }
 const dots = ref<Dot[]>([])
 
 // 封装的点阵生成逻辑
-const regenDots = (width: number, height: number) => {
+function regenDots(width: number, height: number) {
   const newDots: Dot[] = []
   const { gap, speedMin, speedMax } = props // 总是读取最新的 props
   const cols = Math.ceil(width / gap) + 2
@@ -126,17 +115,20 @@ let stopMainLoop: () => void = () => { /* empty */ }
 onMounted(() => {
   const canvasEl = canvasRef.value
   const containerEl = containerRef.value
-  if (canvasEl == null || containerEl == null) return
+  if (canvasEl == null || containerEl == null)
+    return
 
   const ctx = canvasEl.getContext('2d')
-  if (!ctx) return
+  if (!ctx)
+    return
 
   let raf = 0
   let stopped = false
 
   // 渲染循环
   const draw = (now: number) => {
-    if (stopped) return
+    if (stopped)
+      return
 
     // 在 draw 循环中直接读取响应式数据
     const { width, height } = containerEl.getBoundingClientRect()
@@ -151,8 +143,12 @@ onMounted(() => {
     // 绘制背景
     if (backgroundOpacity > 0) {
       const grad = ctx.createRadialGradient(
-        width * 0.5, height * 0.4, Math.min(width, height) * 0.1,
-        width * 0.5, height * 0.5, Math.max(width, height) * 0.7
+        width * 0.5,
+        height * 0.4,
+        Math.min(width, height) * 0.1,
+        width * 0.5,
+        height * 0.5,
+        Math.max(width, height) * 0.7,
       )
       grad.addColorStop(0, 'rgba(0,0,0,0)')
       grad.addColorStop(1, `rgba(0,0,0,${Math.min(Math.max(backgroundOpacity, 0), 1)})`)
@@ -175,7 +171,8 @@ onMounted(() => {
         const glow = (a - 0.6) / 0.4
         ctx.shadowColor = glowColor // 使用 computed 值
         ctx.shadowBlur = 6 * glow
-      } else {
+      }
+      else {
         ctx.shadowColor = 'transparent'
         ctx.shadowBlur = 0
       }
@@ -187,7 +184,8 @@ onMounted(() => {
     }
     ctx.restore()
 
-    if (animate) raf = requestAnimationFrame(draw)
+    if (animate)
+      raf = requestAnimationFrame(draw)
   }
 
   // 启动循环
@@ -236,3 +234,15 @@ onUnmounted(() => {
   stopMainLoop()
 })
 </script>
+
+<template>
+  <div
+    ref="containerRef"
+    style="position: absolute; inset: 0"
+  >
+    <canvas
+      ref="canvasRef"
+      style="display: block; width: 100%; height: 100%"
+    />
+  </div>
+</template>

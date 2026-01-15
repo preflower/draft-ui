@@ -1,5 +1,7 @@
-export * from './components/star-rate'
+export * from './components/dotted-glow-background'
 
 export * from './components/flip-countdown'
 
-export * from './components/dotted-glow-background'
+export * from './components/scroll-tabs'
+
+export * from './components/star-rate'

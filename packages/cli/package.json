@@ -3,14 +3,6 @@
   "version": "0.1.0",
   "private": false,
   "description": "A command-line tool for adding components to your Vue and React projects. Inspired by shadcn/ui.",
-  "type": "module",
-  "keywords": [
-    "ui-kit",
-    "vue",
-    "react",
-    "cli",
-    "shadcn"
-  ],
   "license": "MIT",
   "homepage": "https://preflower.github.io/draft-ui/",
   "repository": {
@@ -18,6 +10,13 @@
     "url": "git+https://github.com/preflower/draft-ui.git",
     "directory": "packages/cli"
   },
+  "keywords": [
+    "ui-kit",
+    "vue",
+    "react",
+    "cli",
+    "shadcn"
+  ],
   "bin": {
     "draft-cli": "./dist/index.js"
   },

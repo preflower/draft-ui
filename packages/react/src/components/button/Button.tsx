@@ -1,7 +1,7 @@
-import React from 'react'
+import * as React from 'react'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'default' | 'outline';
+  variant?: 'default' | 'outline'
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -15,25 +15,25 @@ export const Button: React.FC<ButtonProps> = ({
     borderRadius: '6px',
     fontWeight: '500',
     cursor: 'pointer',
-    transition: 'all 0.2s'
+    transition: 'all 0.2s',
   }
 
   const variants = {
     default: {
       backgroundColor: '#000',
       color: '#fff',
-      border: 'none'
+      border: 'none',
     },
     outline: {
       backgroundColor: 'transparent',
       color: '#000',
-      border: '1px solid #e2e8f0'
-    }
+      border: '1px solid #e2e8f0',
+    },
   }
 
   const style = {
     ...baseStyles,
-    ...variants[variant]
+    ...variants[variant],
   }
 
   return (
