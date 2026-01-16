@@ -27,6 +27,21 @@
         "StarRate.vue",
         "index.ts"
       ]
+    },
+    "scroll-tabs": {
+      "dependencies": [
+        "@vueuse/core"
+      ],
+      "files": [
+        "ScrollTabsRoot.vue",
+        "ScrollTabsList.vue",
+        "ScrollTabsTrigger.vue",
+        "ScrollTabsIndicator.vue",
+        "ScrollTabsContainer.vue",
+        "ScrollTabsContent.vue",
+        "useScrollTabs.ts",
+        "index.ts"
+      ]
     }
   }
 }

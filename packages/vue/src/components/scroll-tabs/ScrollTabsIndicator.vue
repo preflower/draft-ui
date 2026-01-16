@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { useEventListener } from '@vueuse/core'
-import { nextTick, ref, useTemplateRef, watch } from 'vue'
+import { nextTick, onMounted, ref, useTemplateRef, watch } from 'vue'
 
 import { cn } from '@/lib/utils'
 import { useScrollTabs } from './useScrollTabs'
@@ -33,8 +33,10 @@ watch(currentTab, () => {
   immediate: true,
 })
 
-useEventListener(window, 'resize', () => {
-  updateIndicatorStyle()
+onMounted(() => {
+  useEventListener(window, 'resize', () => {
+    updateIndicatorStyle()
+  })
 })
 
 function updateIndicatorStyle() {

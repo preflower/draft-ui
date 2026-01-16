@@ -13,7 +13,9 @@ npx draft-cli vue add scroll-tabs
 ### Basic Usage
 
 <div class="example-block">
-  <DraftScrollTabsDemo />
+  <ClientOnly>
+    <DraftScrollTabsDemo />
+  </ClientOnly>
 </div>
 
 Place `ScrollTabsList` at the top (can use `sticky` positioning), and place content inside `ScrollTabsContainer`.

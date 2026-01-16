@@ -112,7 +112,7 @@ export async function addComponent(componentName: string, type: 'vue' | 'react')
           if (stat.isDirectory()) {
             await processDir(fullPath)
           }
-          else if (stat.isFile() && /\.(ts|tsx|vue|js|jsx)$/.test(entry)) {
+          else if (stat.isFile() && /\.(?:ts|tsx|vue|js|jsx)$/.test(entry)) {
             const content = await fs.readFile(fullPath, 'utf-8')
             const transformedContent = transformImports(content, config)
             await fs.writeFile(fullPath, transformedContent)

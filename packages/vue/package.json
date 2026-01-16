@@ -18,7 +18,7 @@
     "vue": "^3.4.0"
   },
   "dependencies": {
-    "@preflower/vue-use": "^1.2.0",
+    "@preflower/vue-use": "^1.2.1",
     "@vueuse/core": "^10.7.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
