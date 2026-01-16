@@ -1,6 +1,7 @@
 {
   "name": "draft-cli",
-  "version": "0.1.1",
+  "type": "module",
+  "version": "0.1.2",
   "private": false,
   "description": "A command-line tool for adding components to your Vue and React projects. Inspired by shadcn/ui.",
   "license": "MIT",
@@ -18,7 +19,7 @@
     "shadcn"
   ],
   "bin": {
-    "draft-cli": "./dist/index.js"
+    "draft-cli": "./dist/index.mjs"
   },
   "publishConfig": {
     "access": "public",
