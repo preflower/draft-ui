@@ -1,5 +1,11 @@
 # @draft-ui/cli
 
+## 0.1.6
+
+### Patch Changes
+
+- c199f48: fix folderName incorrect error
+
 ## 0.1.5
 
 ### Patch Changes
