@@ -2,7 +2,8 @@
   "components": {
     "dotted-glow-background": {
       "dependencies": [
-        "@vueuse/core"
+        "@vueuse/core",
+        "vue"
       ],
       "files": [
         "DottedGlowBackground.vue",
@@ -11,7 +12,8 @@
     },
     "flip-countdown": {
       "dependencies": [
-        "@vueuse/core"
+        "@vueuse/core",
+        "vue"
       ],
       "files": [
         "FlipCountdown.vue",
@@ -31,17 +33,18 @@
     "scroll-tabs": {
       "dependencies": [
         "@preflower/vue-use",
-        "@vueuse/core"
+        "@vueuse/core",
+        "vue"
       ],
       "files": [
-        "ScrollTabsRoot.vue",
-        "ScrollTabsList.vue",
-        "ScrollTabsTrigger.vue",
-        "ScrollTabsIndicator.vue",
         "ScrollTabsContainer.vue",
         "ScrollTabsContent.vue",
-        "useScrollTabs.ts",
-        "index.ts"
+        "ScrollTabsIndicator.vue",
+        "ScrollTabsList.vue",
+        "ScrollTabsRoot.vue",
+        "ScrollTabsTrigger.vue",
+        "index.ts",
+        "useScrollTabs.ts"
       ]
     }
   }
