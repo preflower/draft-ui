@@ -50,12 +50,9 @@ function transformImports(content: string, config: Config) {
   return res
 }
 
-function getTargetDir(cwd: string, config: Config, componentName: string, isRegistry: boolean) {
-  // Use TitleCase for registry components to match original logic, or componentName for local
-  // Note: preserving original behavior where registry used TitleCase
-  const folderName = isRegistry
-    ? componentName.charAt(0).toUpperCase() + componentName.slice(1)
-    : componentName
+function getTargetDir(cwd: string, config: Config, componentName: string, _isRegistry: boolean) {
+  // Always use componentName (which matches the registry key, usually kebab-case)
+  const folderName = componentName
 
   const targetBase = (config.aliases.draft ?? config.aliases.ui ?? config.aliases.components).replace('@/', 'src/')
   return path.resolve(cwd, targetBase, folderName)

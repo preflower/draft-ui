@@ -30,6 +30,7 @@
     },
     "scroll-tabs": {
       "dependencies": [
+        "@preflower/vue-use",
         "@vueuse/core"
       ],
       "files": [
