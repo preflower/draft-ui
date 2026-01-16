@@ -1,5 +1,11 @@
 # @draft-ui/cli
 
+## 0.1.3
+
+### Patch Changes
+
+- 2240f28: fix draft-cli command not found error
+
 ## 0.1.1
 
 ### Patch Changes
