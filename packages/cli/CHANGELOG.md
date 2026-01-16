@@ -1,5 +1,11 @@
 # @draft-ui/cli
 
+## 0.1.4
+
+### Patch Changes
+
+- 1352364: fix draft-cli not command error
+
 ## 0.1.3
 
 ### Patch Changes
