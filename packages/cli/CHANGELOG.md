@@ -1,5 +1,11 @@
 # @draft-ui/cli
 
+## 0.1.5
+
+### Patch Changes
+
+- e968792: fix components.josn verify failed error
+
 ## 0.1.4
 
 ### Patch Changes
