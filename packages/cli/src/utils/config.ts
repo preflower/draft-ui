@@ -4,9 +4,7 @@ import fs from 'fs-extra'
 import { z } from 'zod'
 
 export const configSchema = z.object({
-  style: z.string(),
-  rsc: z.boolean(),
-  tsx: z.boolean(),
+  typescript: z.boolean(),
   tailwind: z.object({
     config: z.string(),
     css: z.string(),
